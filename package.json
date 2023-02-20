@@ -1,0 +1,30 @@
+{
+	"name": "backend-template",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node --experimental-specifier-resolution=node src/index.js",
+		"dev": "npx env-cmd npm start",
+		"watch": "nodemon -L --watch src --exec npm run dev"
+	},
+	"bin": {
+		"vprok-parser": "./src/index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"imports": {
+		"#app/*": "./src/*"
+	},
+	"devDependencies": {
+		"env-cmd": "latest",
+		"eslint": "latest",
+		"eslint-plugin-jest": "latest",
+		"nodemon": "latest"
+	},
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.12",
+		"puppeteer": "^19.7.1"
+	}
+}
