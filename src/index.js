@@ -45,12 +45,15 @@ const parser = async () => {
 			await sleep(1000)
 
 			await page.evaluate((region) => {
+				let found = false
 				const regions = document.querySelectorAll('.RegionModal_list__IzXxc > div')
 				regions.forEach((item) => {
 					if (item.textContent === region) {
 						item.click()
+						found = true
 					}
 				})
+				if (!found) throw new Error(`Region is not found`)
 			}, region)
 
 			await page.waitForNavigation()
